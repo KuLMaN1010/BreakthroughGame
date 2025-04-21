@@ -66,9 +66,9 @@ class BreakthroughGame:
         if self.status == 5:
             # Black
             if self.turn == 1:
-                start = time.clock()
-                self.ai_move(2, 2)
-                self.total_time_1 += (time.clock() - start)
+                start = time.process_time() # Changed this to match the version of python
+                self.ai_move(2, 7)
+                self.total_time_1 += (time.process_time() - start)
                 self.total_step_1 += 1
                 print('total_step_1 = ', self.total_step_1,
                       'total_nodes_1 = ', self.total_nodes_1,
@@ -76,9 +76,9 @@ class BreakthroughGame:
                       'time_per_move_1 = ', self.total_time_1 / self.total_step_1,
                       'have_eaten = ', self.eat_piece)
             elif self.turn == 2:
-                start = time.clock()
-                self.ai_move(2, 2)
-                self.total_time_2 += (time.clock() - start)
+                start = time.process_time()
+                self.ai_move(2, 7)
+                self.total_time_2 += (time.process_time() - start)
                 self.total_step_2 += 1
                 print('total_step_2 = ', self.total_step_2,
                       'total_nodes_2 = ', self.total_nodes_2,

@@ -162,6 +162,9 @@ class State:
             return self.offensive_function_long(turn)
         elif self.function == 6:
             return self.defensive_function_long(turn)
+        elif self.function == 7: # This is added to use my offensive function 2 
+            return offensive_function_2(self, turn)
+
 
 
 
@@ -294,29 +297,29 @@ class State:
                #+  self.get_important_pos_baseline(turn)
 
     def offensive_function_2(state, player):
-    board = state.board
-    score = 0
+        board = state.board
+        score = 0
 
-    # This is figuring out like who the opponent is
-    opponent = 2 if player == 1 else 1
+        # This is figuring out like who the opponent is
+        opponent = 2 if player == 1 else 1
 
-    # This is for checking which row the player is trying to reach
-    goal_row = 0 if player == 1 else len(board) - 1
+        # This is for checking which row the player is trying to reach
+        goal_row = 0 if player == 1 else len(board) - 1
 
-    # This is for like going through every cell on the board
-    for row in range(len(board)):
-        for col in range(len(board[0])):
-            if board[row][col] == player:
-                # This for like rewarding pieces that are closer to the goal row
-                if player == 1:
-                    score += (len(board) - row)
-                else:
-                    score += (row + 1)
-            elif board[row][col] == opponent:
-                # This is subtracting points for opponent pieces that are like still on the board
-                score -= 3
+        # This is for like going through every cell on the board
+        for row in range(len(board)):
+            for col in range(len(board[0])):
+                if board[row][col] == player:
+                    # This for like rewarding pieces that are closer to the goal row
+                    if player == 1:
+                        score += (len(board) - row)
+                    else:
+                        score += (row + 1)
+                elif board[row][col] == opponent:
+                    # This is subtracting points for opponent pieces that are like still on the board
+                    score -= 3
 
-    return score
+        return score
 
 
     def defensive_function(self, turn):
