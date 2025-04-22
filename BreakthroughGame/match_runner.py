@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import time
 from breakthroughgame import BreakthroughGame
 import pygame
@@ -10,7 +11,7 @@ pygame.display.set_caption = lambda title: None
 
 class MatchRunner:
     def __init__(self):
-        # This is for listing all the matchups we need to run, like from the assignment
+        # This is like where we put all the matchups mentioned in the assignment
         self.matchups = [
             ("Minimax(Off1) vs AlphaBeta(Off1)", "minimax", 1, "alphabeta", 1),
             ("AlphaBeta(Off2) vs AlphaBeta(Def1)", "alphabeta", 7, "alphabeta", 2),
@@ -19,7 +20,7 @@ class MatchRunner:
             ("AlphaBeta(Def2) vs AlphaBeta(Def1)", "alphabeta", 8, "alphabeta", 2),
             ("AlphaBeta(Off2) vs AlphaBeta(Def2)", "alphabeta", 7, "alphabeta", 8),
         ]
-        self.results = []  # This is for storing all the results of each match
+        self.results = []  # Like just saving all the results from each match here
 
     def run_game(self, black_type, black_func, white_type, white_func):
         # This is for starting a new game instance and setting it to auto mode
@@ -30,30 +31,36 @@ class MatchRunner:
             game.clock.tick(60)
             game.screen.fill([255, 255, 255])  # just clearing the screen
 
-            # This is for timing how long each move takes
-            start = time.process_time()
+            start = time.process_time()  # This is like starting a stopwatch
 
             if game.turn == 1:
                 if black_type == "minimax":
-                    game.ai_move_minimax(black_func)
+                    game.ai_move_minimax(black_func)  # Black playing
                 else:
                     game.ai_move_alphabeta(black_func)
                 game.total_time_1 += time.process_time() - start
                 game.total_step_1 += 1
             else:
                 if white_type == "minimax":
-                    game.ai_move_minimax(white_func)
+                    game.ai_move_minimax(white_func)  # White playing
                 else:
                     game.ai_move_alphabeta(white_func)
                 game.total_time_2 += time.process_time() - start
                 game.total_step_2 += 1
 
-            game.display()
+            game.display()  # Even if we don’t really see it, we keep it here
 
-        # This is for deciding who won based on the board
-        winner = "Black" if any(2 in row for row in game.boardmatrix[0:1]) else "White"
+        # This is for deciding the winner based on breakthrough rules
+        if any(cell == 2 for cell in game.boardmatrix[0]):
+            winner = "White"  # White reached top row
+        elif any(cell == 1 for cell in game.boardmatrix[7]):
+            winner = "Black"  # Black reached bottom row
+        else:
+            # fallback — all opponent pieces captured
+            black_count = sum(row.count(1) for row in game.boardmatrix)
+            white_count = sum(row.count(2) for row in game.boardmatrix)
+            winner = "White" if black_count == 0 else "Black"
 
-        # This is for returning all the result details for this one game
         return {
             "winner": winner,
             "final_board": game.boardmatrix,
@@ -78,7 +85,7 @@ class MatchRunner:
 
     def save_results(self, filename="match_results.txt"):
         # This is for saving everything to a text file to make reporting easier later
-        with open(filename, "w") as f:
+        with open(filename, "w", encoding="utf-8") as f:
             for label, result in self.results:
                 f.write(f"=== {label} ===\n")
                 f.write(f"Winner: {result['winner']}\n")
@@ -96,7 +103,6 @@ class MatchRunner:
                 f.write(f"Total moves (Black): {result['total_moves_1']}\n")
                 f.write(f"Total moves (White): {result['total_moves_2']}\n")
                 f.write("\n")
-
 
 # This is for calling the match runner and running all the matches when the file is executed
 if __name__ == "__main__":

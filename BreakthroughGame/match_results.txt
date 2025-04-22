@@ -1,5 +1,5 @@
 === Minimax(Off1) vs AlphaBeta(Off1) ===
-Winner: Black
+Winner: White
 Final Board State:
 2 1 0 1 1 1 1 1
 1 0 0 0 0 1 1 1
@@ -13,15 +13,15 @@ Total nodes (Black): 253881
 Total nodes (White): 2477079
 Avg nodes/move (Black): 14934.18
 Avg nodes/move (White): 145710.53
-Avg time/move (Black): 0.2031 sec
-Avg time/move (White): 3.8318 sec
+Avg time/move (Black): 0.2197 sec
+Avg time/move (White): 3.9485 sec
 Captured by Black: 2
 Captured by White: 4
 Total moves (Black): 17
 Total moves (White): 17
 
 === AlphaBeta(Off2) vs AlphaBeta(Def1) ===
-Winner: White
+Winner: Black
 Final Board State:
 1 0 1 1 1 1 1 1
 0 0 0 0 1 1 1 1
@@ -35,15 +35,15 @@ Total nodes (Black): 1298701
 Total nodes (White): 2684546
 Avg nodes/move (Black): 76394.18
 Avg nodes/move (White): 167784.12
-Avg time/move (Black): 2.4623 sec
-Avg time/move (White): 3.9160 sec
+Avg time/move (Black): 2.5267 sec
+Avg time/move (White): 4.0068 sec
 Captured by Black: 5
 Captured by White: 2
 Total moves (Black): 17
 Total moves (White): 16
 
 === AlphaBeta(Def2) vs AlphaBeta(Off1) ===
-Winner: White
+Winner: Black
 Final Board State:
 0 0 0 0 0 0 0 0
 1 1 0 1 0 1 0 0
@@ -57,15 +57,15 @@ Total nodes (Black): 6418600
 Total nodes (White): 9681939
 Avg nodes/move (Black): 164579.49
 Avg nodes/move (White): 254787.87
-Avg time/move (Black): 5.3037 sec
-Avg time/move (White): 7.1579 sec
+Avg time/move (Black): 5.5056 sec
+Avg time/move (White): 7.4971 sec
 Captured by Black: 7
 Captured by White: 5
 Total moves (Black): 39
 Total moves (White): 38
 
 === AlphaBeta(Off2) vs AlphaBeta(Off1) ===
-Winner: White
+Winner: Black
 Final Board State:
 1 1 1 1 1 1 1 1
 0 0 0 0 1 1 1 1
@@ -79,15 +79,15 @@ Total nodes (Black): 2237676
 Total nodes (White): 2158551
 Avg nodes/move (Black): 111883.80
 Avg nodes/move (White): 113607.95
-Avg time/move (Black): 3.4094 sec
-Avg time/move (White): 3.0633 sec
+Avg time/move (Black): 3.4594 sec
+Avg time/move (White): 3.4594 sec
 Captured by Black: 8
 Captured by White: 2
 Total moves (Black): 20
 Total moves (White): 19
 
 === AlphaBeta(Def2) vs AlphaBeta(Def1) ===
-Winner: White
+Winner: Black
 Final Board State:
 1 0 1 1 1 1 1 1
 0 0 0 0 0 1 1 1
@@ -101,15 +101,15 @@ Total nodes (Black): 2278032
 Total nodes (White): 4045411
 Avg nodes/move (Black): 94918.00
 Avg nodes/move (White): 175887.43
-Avg time/move (Black): 3.0859 sec
-Avg time/move (White): 4.3811 sec
+Avg time/move (Black): 3.0944 sec
+Avg time/move (White): 4.4042 sec
 Captured by Black: 8
 Captured by White: 4
 Total moves (Black): 24
 Total moves (White): 23
 
 === AlphaBeta(Off2) vs AlphaBeta(Def2) ===
-Winner: White
+Winner: Black
 Final Board State:
 1 1 1 1 1 1 1 1
 0 0 0 1 1 1 1 1
@@ -123,8 +123,8 @@ Total nodes (Black): 1095183
 Total nodes (White): 1387328
 Avg nodes/move (Black): 91265.25
 Avg nodes/move (White): 126120.73
-Avg time/move (Black): 3.1615 sec
-Avg time/move (White): 4.3423 sec
+Avg time/move (Black): 3.2318 sec
+Avg time/move (White): 4.3693 sec
 Captured by Black: 1
 Captured by White: 1
 Total moves (Black): 12
