@@ -67,7 +67,9 @@ class BreakthroughGame:
             # Black
             if self.turn == 1:
                 start = time.process_time() # Changed this to match the version of python
-                self.ai_move(2, 8)
+                # This is for when I'm like using the auto button on GUI
+                # Black is like trying Defensive Heuristic 2
+                self.ai_move(2, 8) # Defensive Heuristic 2, we can change it to other if we wanted
                 self.total_time_1 += (time.process_time() - start)
                 self.total_step_1 += 1
                 print('total_step_1 = ', self.total_step_1,
@@ -77,7 +79,8 @@ class BreakthroughGame:
                       'have_eaten = ', self.eat_piece)
             elif self.turn == 2:
                 start = time.process_time()
-                self.ai_move(2, 7)
+                # White is like using my Offensive Heuristic 2
+                self.ai_move(2, 7)  # Offensive Heuristic 2, we can change it other if we wanted.
                 self.total_time_2 += (time.process_time() - start)
                 self.total_step_2 += 1
                 print('total_step_2 = ', self.total_step_2,
