@@ -31,6 +31,7 @@
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Readme.txt" />
     <Content Include="src\auto.png" />
     <Content Include="src\blackchess.png" />
     <Content Include="src\chessboard.jpg" />
