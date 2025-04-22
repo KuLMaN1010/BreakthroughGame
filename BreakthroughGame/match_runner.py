@@ -27,7 +27,6 @@ class MatchRunner:
         game.status = 5  # setting the status to 5 so the AIs can like auto play
 
         while game.status != 3:
-            # This is for keeping the clock running like normal
             game.clock.tick(60)
             game.screen.fill([255, 255, 255])  # just clearing the screen
 
@@ -35,25 +34,26 @@ class MatchRunner:
             start = time.process_time()
 
             if game.turn == 1:
-                # This is for letting black play
                 if black_type == "minimax":
                     game.ai_move_minimax(black_func)
                 else:
                     game.ai_move_alphabeta(black_func)
+                game.total_time_1 += time.process_time() - start
+                game.total_step_1 += 1
             else:
-                # This is for letting white play
                 if white_type == "minimax":
                     game.ai_move_minimax(white_func)
                 else:
                     game.ai_move_alphabeta(white_func)
+                game.total_time_2 += time.process_time() - start
+                game.total_step_2 += 1
 
-            # This is just to update the board (not actually showing anything here though)
             game.display()
 
         # This is for deciding who won based on the board
         winner = "Black" if any(2 in row for row in game.boardmatrix[0:1]) else "White"
 
-        # This is for returning all the result details for this one game 
+        # This is for returning all the result details for this one game
         return {
             "winner": winner,
             "final_board": game.boardmatrix,
