@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>daab4f9d-f471-4d7c-b62f-1225cbe286a3</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>breakthroughgame.py</StartupFile>
+    <StartupFile>match_runner.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,6 +23,7 @@
   <ItemGroup>
     <Compile Include="alpha_beta_agent.py" />
     <Compile Include="breakthroughgame.py" />
+    <Compile Include="match_runner.py" />
     <Compile Include="minimax_agent.py" />
     <Compile Include="model.py" />
   </ItemGroup>

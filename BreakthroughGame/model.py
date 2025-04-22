@@ -37,6 +37,59 @@ def alterturn(turn):
     if turn == 2:
         return 1
 
+def offensive_function_2(state, player):
+        board = state.getMatrix()
+        score = 0
+
+        # This is figuring out like who the opponent is
+        opponent = 2 if player == 1 else 1
+
+        # This is for checking which row the player is trying to reach
+        goal_row = 0 if player == 1 else len(board) - 1
+
+        # This is for like going through every cell on the board
+        for row in range(len(board)):
+            for col in range(len(board[0])):
+                if board[row][col] == player:
+                    # This for like rewarding pieces that are closer to the goal row
+                    if player == 1:
+                        score += (len(board) - row)
+                    else:
+                        score += (row + 1)
+                elif board[row][col] == opponent:
+                    # This is subtracting points for opponent pieces that are like still on the board
+                    score -= 3
+
+        return score
+
+def defensive_function_2(state, player):
+    board = state.getMatrix()
+    score = 0
+
+    opponent = 2 if player == 1 else 1
+    danger_zone = 1 if player == 1 else len(board) - 2  # area near my side
+
+    for row in range(len(board)):
+        for col in range(len(board[0])):
+            if board[row][col] == player:
+                # This is like the reward for keeping pieces alive
+                score += 5
+
+                # This is like the reward if they're closer to my base (defensive)
+                if player == 1 and row >= 6:
+                    score += 2
+                elif player == 2 and row <= 1:
+                    score += 2
+
+            elif board[row][col] == opponent:
+                # This like for penalizing if enemy is too close to my base
+                if player == 1 and row >= danger_zone:
+                    score -= 4
+                elif player == 2 and row <= danger_zone:
+                    score -= 4
+
+    return score
+
 class Action:
     def __init__(self, coordinate, direction, turn):
         self.coordinate = coordinate
@@ -164,6 +217,9 @@ class State:
             return self.defensive_function_long(turn)
         elif self.function == 7: # This is added to use my offensive function 2 
             return offensive_function_2(self, turn)
+        elif self.function == 8: # This is added to use my defensive function 2 
+            return defensive_function_2(self, turn)
+
 
 
 
@@ -296,30 +352,6 @@ class State:
         return 2 * self.myscore(turn) - 1 * self.enemyscore(turn)
                #+  self.get_important_pos_baseline(turn)
 
-    def offensive_function_2(state, player):
-        board = state.board
-        score = 0
-
-        # This is figuring out like who the opponent is
-        opponent = 2 if player == 1 else 1
-
-        # This is for checking which row the player is trying to reach
-        goal_row = 0 if player == 1 else len(board) - 1
-
-        # This is for like going through every cell on the board
-        for row in range(len(board)):
-            for col in range(len(board[0])):
-                if board[row][col] == player:
-                    # This for like rewarding pieces that are closer to the goal row
-                    if player == 1:
-                        score += (len(board) - row)
-                    else:
-                        score += (row + 1)
-                elif board[row][col] == opponent:
-                    # This is subtracting points for opponent pieces that are like still on the board
-                    score -= 3
-
-        return score
 
 
     def defensive_function(self, turn):

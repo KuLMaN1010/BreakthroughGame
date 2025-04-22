@@ -67,7 +67,7 @@ class BreakthroughGame:
             # Black
             if self.turn == 1:
                 start = time.process_time() # Changed this to match the version of python
-                self.ai_move(2, 7)
+                self.ai_move(2, 8)
                 self.total_time_1 += (time.process_time() - start)
                 self.total_step_1 += 1
                 print('total_step_1 = ', self.total_step_1,
