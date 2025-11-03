@@ -1,12 +1,15 @@
-BREAKTHROUGHGAME 🤖
-Unleash Strategic Brilliance, Conquer with Confidence
+**BREAKTHROUGHGAME 🤖**
+**Unleash Strategic Brilliance, Conquer with Confidence**
 
-Table of Contents
+
+
+**Table of Contents**
 • Overview
 • Getting Started
   • Installation
   • Usage
   • Testing
+
 
 
 Overview
